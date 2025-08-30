@@ -214,7 +214,7 @@
 //============TOI UU LOANDING VA ERROR HANDLING===================
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
-const contractAddress = "0xff3F736Bd27A5386ecAfF6a05D6609B399a49c1C";
+const contractAddress = "0xA5C3098B3A08e65Daa6fBF8C86b69CF45bF06F1e";
 const abi = [
   "function candidateCount() view returns (uint)",
   "function candidates(uint) view returns (string, uint)",
@@ -254,7 +254,7 @@ function App() {
     setLoading(true);
     try {
       const provider = new ethers.BrowserProvider(window.ethereum);
-      const signer = provider.getSigner();
+      const signer = await provider.getSigner(); // Sửa: thêm await
       const contract = new ethers.Contract(contractAddress, abi, signer);
       const tx = await contract.vote(candidateId);
       await tx.wait();
@@ -267,7 +267,7 @@ function App() {
   useEffect(() => { if (account) loadCandidates(); }, [account]);
   return (
     <div className="p-4">
-      <h1 className="text-2xl">Voting dApp</h1>
+      <h1 className="text-2xl">Voting ai dzai, cute nhat:</h1>
       <button className="bg-blue-500 text-white p-2 rounded" onClick={connectWallet}>
         {account ? `Connected: ${account.slice(0, 6)}...` : "Connect MetaMask"}
       </button>

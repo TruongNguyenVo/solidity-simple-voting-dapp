@@ -30,10 +30,10 @@ async function main() {
 
     const voting = new ethers.Contract(CONTRACT_ADDRESS, ABI, wallet); // neu chi view, pure thi chi can provider, neu ghi du lieu thi phai co wallet
 
-    const tx = await voting.addCandidate("Truong");
+    const tx = await voting.addCandidate("Nguyen");
     await tx.wait();
 
-    const candidate = await voting.candidates();
+    const candidate = await voting.candidates(2);
     console.log("Candidate: ", candidate);
 }
 main().catch(console.error);
