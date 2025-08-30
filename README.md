@@ -1,4 +1,6 @@
 # Voting DApp Project
+## Thành Quả
+- **Voting FE**: `https://nguyen-voting-dapp.vercel.app/`
 
 ## 1. Cấu trúc dự án
 
